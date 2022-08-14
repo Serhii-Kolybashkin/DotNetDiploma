@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Interfaces
+namespace BusinessLogic.Interfaces.Services
 {
-    public interface IComponentRepository
+    public interface IServiceComponent
     {
         Task<ICollection<PartComponent>> GetAllComponentsAsync();
-        Task<PartComponent> GetByIdComponentAsync(int id);
+        Task<PartComponent> GetByIdComponent(int id);
         Task AddComponentAsync(PartComponent component);
         Task UpdateComponentAsync(PartComponent component);
         Task DeleteComponentAsync(PartComponent component);

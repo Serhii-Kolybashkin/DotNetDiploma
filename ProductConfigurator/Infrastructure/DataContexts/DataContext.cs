@@ -5,7 +5,7 @@ namespace Infrastructure.DataContexts
 {
     public class DataContext : DbContext
     {
-        public DbSet<Component> components { get; set; }
+        public DbSet<PartComponent> components { get; set; }
         public DbSet<Order> orders { get; set; }
         public DbSet<ProductAssembled> productAssembledes { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace BusinessLogic.Entities
 {
-    public class Component
+    public class PartComponent
     {
         public int Id { get; set; }
         public string Name { get; set; }

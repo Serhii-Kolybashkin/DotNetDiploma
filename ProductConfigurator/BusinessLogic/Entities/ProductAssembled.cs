@@ -7,7 +7,7 @@ namespace BusinessLogic.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         
-        public List<Component> componentsList;
+        public List<PartComponent> componentsList;
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
     }
