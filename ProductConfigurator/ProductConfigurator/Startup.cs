@@ -1,8 +1,4 @@
 using Autofac;
-using BusinessLogic.Interfaces;
-using BusinessLogic.Interfaces.Services;
-using Infrastructure.Repositories;
-using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +31,7 @@ namespace ProductConfigurator
         }
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule<AggregationTest>();
+            builder.RegisterModule<ApplicationRegistrationModule>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

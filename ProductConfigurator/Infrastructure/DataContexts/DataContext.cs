@@ -7,7 +7,7 @@ namespace Infrastructure.DataContexts
     {
         public DbSet<PartComponent> components { get; set; }
         public DbSet<Order> orders { get; set; }
-        public DbSet<ProductAssembled> productAssembledes { get; set; }
+        public DbSet<ProductAssembly> productAssembledes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

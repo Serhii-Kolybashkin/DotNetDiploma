@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class ComponentRepository : IComponentRepository
+    public class PartComponentRepository : IPartComponentRepository
     {
         private DataContext _dataContext;
 
-        public ComponentRepository (DataContext dataContextComponents)
+        public PartComponentRepository (DataContext dataContextComponents)
         {
             this._dataContext = dataContextComponents;
         }
-        public async Task<ICollection<PartComponent>> GetAllComponentsAsync()
+        public async Task<ICollection<PartComponent>> GetAllPartComponentAsync()
         {
             return await this._dataContext.components.ToListAsync();
         }
-        public async Task<PartComponent> GetByIdComponentAsync(int id)
+        public async Task<PartComponent> GetByIdPartComponentAsync(int id)
         {
             return await this._dataContext.components.FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task AddComponentAsync(PartComponent component)
+        public async Task AddPartComponentAsync(PartComponent component)
         {
             await this._dataContext.components.AddAsync(component);
             await this._dataContext.SaveChangesAsync();
         }
-        public async Task UpdateComponentAsync(PartComponent component)
+        public async Task UpdatePartComponentAsync(PartComponent component)
         {
             this._dataContext.components.Update(component);
             await this._dataContext.SaveChangesAsync();
         }        
-        public async Task DeleteComponentAsync(PartComponent component)
+        public async Task DeletePartComponentAsync(PartComponent component)
         {
             this._dataContext.components.Remove(component);
             await this._dataContext.SaveChangesAsync();

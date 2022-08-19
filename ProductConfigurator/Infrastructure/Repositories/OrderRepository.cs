@@ -16,29 +16,29 @@ namespace Infrastructure.Repositories
             this._dataContext = dataContextOrders;
         }
 
-        public async Task AddComponentAsync(Order orders)
+        public async Task AddOrderAsync(Order orders)
         {
             await this._dataContext.orders.AddAsync(orders);
             await this._dataContext.SaveChangesAsync();
         }
 
-        public async Task DeleteComponentAsync(Order orders)
+        public async Task DeleteOrderAsync(Order orders)
         {
             this._dataContext.orders.Remove(orders);
             await this._dataContext.SaveChangesAsync();
         }
 
-        public async Task<ICollection<Order>> GetAllComponentsAsync()
+        public async Task<ICollection<Order>> GetAllOrdersAsync()
         {
             return await this._dataContext.orders.ToListAsync();
         }
 
-        public async Task<Order> GetByIdComponentAsync(int id)
+        public async Task<Order> GetByIdOrderAsync(int id)
         {
             return await this._dataContext.orders.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task UpdateComponentAsync(Order orders)
+        public async Task UpdateOrderAsync(Order orders)
         {
             this._dataContext.orders.Update(orders);
             await this._dataContext.SaveChangesAsync();

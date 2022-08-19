@@ -14,6 +14,10 @@ namespace ProductConfigurator.MappingProfiles
         {
             this.CreateMap<PartComponent, ComponentModel>();
             this.CreateMap<ComponentModel, PartComponent>();
+            this.CreateMap<Order, OrderModel>();
+            this.CreateMap<OrderModel, Order>();
+            this.CreateMap<ProductAssembly, ProductAssemblyModel>();
+            this.CreateMap<ProductAssemblyModel, ProductAssembly>();
         }
     }
 }
