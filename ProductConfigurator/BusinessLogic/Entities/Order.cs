@@ -6,8 +6,9 @@ namespace BusinessLogic.Entities
     {
         public int Id { get; set; }
         public int OrderNumber { get; set; }
-        public List<PartComponent> Components { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
+        public virtual ICollection<PartComponent> PartComponents { get; set; }
+        public int PartComponentId { get; set; }
     }
 }

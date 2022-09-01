@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLogic.Entities
 {
@@ -6,9 +7,9 @@ namespace BusinessLogic.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        
-        public List<PartComponent> componentsList { get; set; }
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
+        public int PartComponentId { get; set; }
+        public virtual ICollection<PartComponent> PartComponents { get; set; }
     }
 }

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProductConfigurator.Models
 {
-    public class OrderModel
+    public class ViewModel
     {
-        public int OrderNumber { get; set; }
+        public string Name { get; set; }
         public int Quantity { get; set; }
-        public decimal Price { get; set; }
+        public decimal TotalPrice { get; set; }
         public int PartComponentId { get; set; }
+        //public virtual ICollection<PartProductJoin> PartComponents { get; set; }
     }
 }

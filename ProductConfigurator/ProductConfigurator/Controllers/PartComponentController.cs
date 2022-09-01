@@ -59,5 +59,12 @@ namespace ProductConfigurator.Controllers
             }
             return this.NotFound();
         }
+        [HttpPost("addPart")]
+        public async Task<IActionResult> CreatePartTest([FromBody] ComponentModel componentModel)
+        {
+            var component = this._componentMapper.Map<PartComponent>(componentModel);
+            await this._serviceComponent.AddComponentAsync(component);
+            return this.Ok();
+        }
     }
 }

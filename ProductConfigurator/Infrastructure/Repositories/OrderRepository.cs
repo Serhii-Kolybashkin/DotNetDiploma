@@ -30,7 +30,7 @@ namespace Infrastructure.Repositories
 
         public async Task<ICollection<Order>> GetAllOrdersAsync()
         {
-            return await this._dataContext.orders.ToListAsync();
+            return await this._dataContext.orders.Include(x=>x.PartComponents).ToListAsync();
         }
 
         public async Task<Order> GetByIdOrderAsync(int id)

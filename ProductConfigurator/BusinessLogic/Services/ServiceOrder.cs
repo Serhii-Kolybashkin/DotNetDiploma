@@ -29,7 +29,7 @@ namespace Infrastructure.Services
             if (orderToUpdate != null)
             {
                 orderToUpdate.OrderNumber = order.OrderNumber;
-                orderToUpdate.Components = order.Components;
+                //orderToUpdate.PartComponents = order.PartComponents;
                 orderToUpdate.Quantity = order.Quantity;
                 orderToUpdate.Price = order.Price;
                 await this._orderRepository.UpdateOrderAsync(orderToUpdate);

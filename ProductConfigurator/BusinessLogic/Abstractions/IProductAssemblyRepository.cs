@@ -14,5 +14,6 @@ namespace BusinessLogic.Interfaces
         Task AddProductAssembledAsync(ProductAssembly productAssembled);
         Task UpdateProductAssembledAsync(ProductAssembly productAssembled);
         Task DeleteProductAssembledAsync(ProductAssembly productAssembled);
+        Task AddPartToProduct(ProductAssembly productAssembled);
     }
 }

@@ -3,9 +3,6 @@ using BusinessLogic.Entities;
 using BusinessLogic.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using ProductConfigurator.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProductConfigurator.Controllers
@@ -15,13 +12,16 @@ namespace ProductConfigurator.Controllers
     public class ProductAssemblyController : Controller
     {
         private readonly IServiceProductAssembly _serviceProductAssembled;
+        private readonly IServiceComponent _serviceComponent;
         private readonly IMapper _productAssemblyMapper;
 
-        public ProductAssemblyController(IServiceProductAssembly serviceProductAssembled, IMapper productAssemblyMapper)
+        public ProductAssemblyController(IServiceProductAssembly serviceProductAssembled, IServiceComponent serviceComponent, IMapper productAssemblyMapper)
         {
             _serviceProductAssembled = serviceProductAssembled;
+            _serviceComponent = serviceComponent;
             _productAssemblyMapper = productAssemblyMapper;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllProductAssembliesAsync()
         {
@@ -62,6 +62,15 @@ namespace ProductConfigurator.Controllers
                 return this.Ok();
             }
             return this.NotFound();
+        }
+        [HttpPost("create2")]
+        public async Task<IActionResult> CreateTest([FromBody] ProductAssemblyModel productAssemblyModel)
+        {            
+            var producAssembly = this._productAssemblyMapper.Map<ProductAssembly>(productAssemblyModel);
+            var part = await _serviceComponent.GetByIdComponent(1);
+            producAssembly.PartComponents.Add(part);
+            await this._serviceProductAssembled.AddProductAssemblyAsync(producAssembly);
+            return this.Ok();
         }
     }
 }
